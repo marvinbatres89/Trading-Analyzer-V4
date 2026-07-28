@@ -351,6 +351,383 @@ a {
 }
 
 /* ==================================================
-   FIN DE LA PARTE 1
+   STYLE.CSS — PARTE 2
+   Controles, botones, tarjetas y diagnóstico
+================================================== */
+
+/* ---------- CONTROLES ---------- */
+
+.grupo-controles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo span {
+  color: var(--texto-secundario);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.campo select {
+  min-height: 48px;
+  padding: 0 14px;
+
+  color: var(--texto-principal);
+
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-medio);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 30, 49, 0.98),
+      rgba(10, 22, 38, 0.98)
+    );
+
+  outline: none;
+
+  transition:
+    border-color var(--transicion),
+    box-shadow var(--transicion),
+    transform var(--transicion);
+}
+
+.campo select:focus {
+  border-color: var(--azul);
+
+  box-shadow:
+    0 0 0 3px rgba(56, 189, 248, 0.12);
+}
+
+.campo select:active {
+  transform: scale(0.99);
+}
+
+.campo option {
+  color: #ffffff;
+  background: #0f1e31;
+}
+
+/* ---------- ACCIONES Y BOTONES ---------- */
+
+.acciones {
+  margin-top: 18px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.boton {
+  min-height: 46px;
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-radius: var(--radio-medio);
+
+  font-size: 0.86rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transicion),
+    opacity var(--transicion),
+    box-shadow var(--transicion),
+    border-color var(--transicion);
+}
+
+.boton:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.boton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.boton.principal {
+  color: #02131e;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7dd3fc,
+      var(--azul)
+    );
+
+  box-shadow:
+    0 10px 24px rgba(56, 189, 248, 0.22);
+}
+
+.boton.principal:hover:not(:disabled) {
+  box-shadow:
+    0 13px 30px rgba(56, 189, 248, 0.32);
+}
+
+.boton.secundario {
+  color: var(--texto-principal);
+
+  border: 1px solid var(--borde);
+
+  background:
+    rgba(15, 30, 49, 0.85);
+}
+
+.boton.secundario:hover:not(:disabled) {
+  border-color: rgba(248, 250, 252, 0.35);
+}
+
+.boton.pequeno {
+  min-height: 36px;
+  padding: 0 13px;
+
+  color: var(--texto-secundario);
+
+  border: 1px solid var(--borde);
+
+  background:
+    rgba(15, 30, 49, 0.72);
+
+  font-size: 0.75rem;
+}
+
+/* ---------- INSIGNIAS ---------- */
+
+.insignia {
+  padding: 7px 11px;
+
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+
+  color: var(--texto-secundario);
+  background: rgba(15, 23, 42, 0.65);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.insignia.activo {
+  color: var(--verde);
+
+  border-color: rgba(34, 197, 94, 0.34);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.insignia.error {
+  color: #fca5a5;
+
+  border-color: rgba(239, 68, 68, 0.32);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* ---------- TARJETAS ---------- */
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 13px;
+}
+
+.tarjeta {
+  min-height: 132px;
+  padding: 17px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-medio);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 36, 57, 0.95),
+      rgba(11, 24, 41, 0.95)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform var(--transicion),
+    border-color var(--transicion);
+}
+
+.tarjeta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.tarjeta p {
+  color: var(--texto-secundario);
+
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.tarjeta strong {
+  font-size: clamp(
+    1.45rem,
+    7vw,
+    2.15rem
+  );
+
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.tarjeta small {
+  color: var(--texto-suave);
+  font-size: 0.7rem;
+}
+
+.tarjeta.precio {
+  border-color: rgba(56, 189, 248, 0.25);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(56, 189, 248, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(18, 39, 62, 0.98),
+      rgba(10, 24, 42, 0.98)
+    );
+}
+
+.tarjeta.precio strong {
+  color: #e0f2fe;
+}
+
+/* ---------- COLORES DE INDICADORES ---------- */
+
+.valor-positivo {
+  color: var(--verde) !important;
+}
+
+.valor-negativo {
+  color: #f87171 !important;
+}
+
+.valor-neutral {
+  color: var(--amarillo) !important;
+}
+
+/* ---------- DIAGNÓSTICO ---------- */
+
+.lista-diagnostico {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-medio);
+
+  background:
+    rgba(7, 17, 31, 0.34);
+}
+
+.fila-diagnostico {
+  min-height: 52px;
+  padding: 12px 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  border-bottom: 1px solid var(--borde);
+}
+
+.fila-diagnostico:last-child {
+  border-bottom: none;
+}
+
+.fila-diagnostico span {
+  color: var(--texto-secundario);
+  font-size: 0.75rem;
+}
+
+.fila-diagnostico strong {
+  max-width: 60%;
+
+  color: var(--texto-principal);
+  font-size: 0.76rem;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- REGISTRO DE ACTIVIDAD ---------- */
+
+.registro-actividad {
+  min-height: 150px;
+  max-height: 270px;
+  padding: 14px;
+
+  overflow-y: auto;
+
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-medio);
+
+  background:
+    rgba(3, 10, 20, 0.62);
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  scrollbar-width: thin;
+}
+
+.registro-actividad p {
+  padding: 7px 0;
+
+  color: #b6c4d6;
+  font-size: 0.72rem;
+  line-height: 1.45;
+
+  border-bottom:
+    1px dashed rgba(148, 163, 184, 0.1);
+}
+
+.registro-actividad p:last-child {
+  border-bottom: none;
+}
+
+/* ---------- PIE DE PÁGINA ---------- */
+
+.pie {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+  padding: 0 18px 30px;
+
+  color: var(--texto-suave);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+/* ==================================================
+   FIN DE LA PARTE 2
    NO PEGAR NADA DEBAJO TODAVÍA
 ================================================== */
