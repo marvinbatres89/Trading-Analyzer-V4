@@ -11,7 +11,8 @@ Función: conexión y comunicación con Deriv
 class DerivAPI {
   constructor() {
     // Servidor público de datos de mercado de Deriv.
-    this.endpoint = "wss://ws.binaryws.com/websockets/v3";
+    this.endpoint =
+  "wss://api.derivws.com/trading/v1/options/ws/public";
 
     // Objeto WebSocket.
     this.socket = null;
